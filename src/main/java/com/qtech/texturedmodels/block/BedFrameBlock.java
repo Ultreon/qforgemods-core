@@ -92,7 +92,7 @@ public class BedFrameBlock extends BedBlock {
                         world.removeBlock(blockpos, false);
                     }
 
-                    world.createExplosion((Entity) null, DamageSource.causeBedExplosionDamage(), (ExplosionContext) null, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 5.0F, true, Explosion.Mode.DESTROY);
+                    world.createExplosion(null, DamageSource.causeBedExplosionDamage(), null, (double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 5.0F, true, Explosion.Mode.DESTROY);
                     return ActionResultType.SUCCESS;
                 } else if (state.get(OCCUPIED)) {
                     if (!this.func_226861_a_(world, pos)) {

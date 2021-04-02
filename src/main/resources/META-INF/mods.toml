@@ -29,13 +29,15 @@ displayName = "Qboi's Forge Mods: Core" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 #logoFile="core.png" #optional
 # A text field displayed in the mod UI
-#credits="Thanks for this example mod goes to Java" #optional
+credits="TeamCoFH" #optional
 # A text field displayed in the mod UI
 authors = "Qboi123" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
 This is the core mod for the Qboi's Forge Mod Series.
 Required by all other mods of the series
+
+Credits to TeamCoFH for 1 java class file (the FoV modifier class).
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.core]] #optional
