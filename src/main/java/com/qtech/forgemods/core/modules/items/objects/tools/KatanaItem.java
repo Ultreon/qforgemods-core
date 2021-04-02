@@ -41,7 +41,7 @@ public class KatanaItem extends SwordItem {
     }
 
     public float getDestroySpeed(ItemStack stack, BlockState state) {
-        if (state.isIn(Blocks.COBWEB)) {
+        if (state.matchesBlock(Blocks.COBWEB)) {
             return 20.0F;
         } else {
             Material material = state.getMaterial();
