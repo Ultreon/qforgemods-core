@@ -37,9 +37,6 @@ public class Modules {
     public static final ConfirmExitModule CONFIRM_EXIT = new ConfirmExitModule();
     public static final PCShutdownModule PC_SHUTDOWN = new PCShutdownModule();
     public static final PCCrashModule PC_CRASH = new PCCrashModule();
-    public static final UpdatesModule UPDATES = new UpdatesModule();
-    public static final DebugMenuModule DEBUG_MENU = new DebugMenuModule();
-    public static final ActionMenuModule ACTION_MENU = new ActionMenuModule();
     public static final DebuggingModule DEBUGGING = new DebuggingModule();
 
     public static void init(ModuleManager manager) {

@@ -1,7 +1,7 @@
 package com.qtech.forgemods.core.plugins;
 
 import com.google.common.annotations.Beta;
-import com.qtech.forgemods.core.QFMPlugin;
+import com.qtech.forgemods.core.QFMCorePlugin;
 import com.qtech.forgemods.core.util.Reflection;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.ModList;
@@ -21,7 +21,7 @@ import static net.minecraftforge.fml.Logging.LOADING;
 @Beta
 public class QFMPluginLoader {
     private static final Logger LOGGER = LogManager.getLogger("QFM:Plugins:Loader");
-    private static final Type AUTO_SUBSCRIBER = Type.getType(QFMPlugin.class);
+    private static final Type AUTO_SUBSCRIBER = Type.getType(QFMCorePlugin.class);
     private static final Type MOD_TYPE = Type.getType(Mod.class);
 
     public QFMPluginLoader() {
@@ -50,7 +50,7 @@ public class QFMPluginLoader {
                     if (Objects.equals(modIdMap.getValue(), modId) && sides.contains(FMLEnvironment.dist)) {
                         try {
                             LOGGER.debug("Registering QFM Plugin for Class name: {}", ad.getClassType().getClassName());
-                            QFMPluginManager.get().registerPlugin(Class.forName(ad.getClassType().getClassName(), true, loader));
+                            QFMCorePluginManager.get().registerPlugin(Class.forName(ad.getClassType().getClassName(), true, loader));
                         } catch (ClassNotFoundException e) {
                             LOGGER.fatal(LOADING, "Failed to load QFM Plugin class {} for @QFMPlugin annotation", ad.getClassType(), e);
                             throw new RuntimeException(e);

@@ -1,16 +1,17 @@
 package com.qtech.forgemods.core.plugins;
 
 import com.google.common.annotations.Beta;
+import com.qtech.forgemods.core.QFMPlugin;
 
 @Beta
-public class ModPlugin {
-    private final Class<?> clazz;
+public class ModPlugin<T extends QFMPlugin> {
+    private final T plugin;
 
-    public ModPlugin(Class<?> clazz) {
-        this.clazz = clazz;
+    public ModPlugin(T plugin) {
+        this.plugin = plugin;
     }
 
-    public Class<?> getPluginClass() {
-        return clazz;
+    public T getPlugin() {
+        return plugin;
     }
 }

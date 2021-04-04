@@ -2,14 +2,15 @@ package com.qtech.forgemods.core;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import com.qsoftware.modlib.api.annotations.FieldsAreNonnullByDefault;
 import com.qtech.forgemods.core.common.Module;
 import com.qtech.forgemods.core.common.ModuleManager;
 import com.qtech.forgemods.core.internal.QfmArgs;
-import com.qtech.forgemods.core.modules.tiles.ModBlocksAlt;
 import com.qtech.forgemods.core.modules.environment.ModEntities;
 import com.qtech.forgemods.core.modules.items.ModItemsAlt;
+import com.qtech.forgemods.core.modules.tiles.ModBlocksAlt;
 import com.qtech.forgemods.core.modules.ui.ModContainers;
-import com.qsoftware.modlib.api.annotations.FieldsAreNonnullByDefault;
+import com.qtech.forgemods.core.plugins.QFMCorePluginManager;
 import lombok.Getter;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
@@ -32,8 +33,8 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.io.File;
 import java.io.IOException;
@@ -60,7 +61,7 @@ import java.util.stream.Collectors;
 @FieldsAreNonnullByDefault
 @Mod(QFMCore.modId)
 @Mod.EventBusSubscriber(modid = QFMCore.modId, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class QFMCore {
+public class QFMCore implements QFMCorePlugin {
     /**
      * QForgeMod's Logger
      */
@@ -135,6 +136,7 @@ public class QFMCore {
 
     // Getters
     @Getter private final IEventBus modEventBus;
+    private final QFMCorePluginManager pluginManager = QFMCorePluginManager.get();
 
     /**
      * The QForgeUtils constructor for mod-loading.
@@ -204,11 +206,11 @@ public class QFMCore {
     }
 
     public static File getDataFile() {
-        return Initialization.getServer().func_240776_a_(new FolderName("qcore-data")).toFile();
+        return Initialization.getServer().func_240776_a_(new FolderName("qfm-data")).toFile();
     }
 
     public static Path getDataPath() {
-        return Initialization.getServer().func_240776_a_(new FolderName("qcore-data"));
+        return Initialization.getServer().func_240776_a_(new FolderName("qfm-data"));
     }
 
     /**
@@ -305,5 +307,21 @@ public class QFMCore {
         LOGGER.info("Got IMC {}", event.getIMCStream().
                 map(InterModComms.IMCMessage::getMessageSupplier).
                 collect(Collectors.toList()));
+    }
+
+    @Override
+    @Nullable
+    public QFMCorePluginManager getPluginManager() {
+        return pluginManager;
+    }
+
+    @Override
+    public int getCoreMinBuild() {
+        return 0;
+    }
+
+    @Override
+    public int getCoreMaxBuild() {
+        return Integer.MAX_VALUE;
     }
 }
