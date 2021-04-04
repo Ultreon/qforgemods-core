@@ -3,15 +3,15 @@
       "dev_test": "false"
    },
    "version": {
-      "name": "2.0.1363-b6",
+      "name": "2.0.1379-b6",
       "version": 2,
       "release": 0,
-      "build": 1363,
+      "build": 1379,
       "stage": "b",
       "stage_release": 6
    },
    "build_info": {
-      "date": "2021-04-04T16:24:27.328907900",
+      "date": "2021-04-04T23:34:12.663493600",
       "compile": {
          "name": "compileJava",
          "source_compat": "1.8",
@@ -21,8 +21,8 @@
          }
       },
       "project": {
-         "name": "core",
-         "display_name": "root project \u0027core\u0027",
+         "name": "qforgemods-core",
+         "display_name": "project \u0027:qforgemods-core\u0027",
          "minecraft": {
             "mappings_version": "20201028-1.16.3",
             "mappings_channel": "snapshot",

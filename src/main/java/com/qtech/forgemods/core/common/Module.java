@@ -1,5 +1,6 @@
 package com.qtech.forgemods.core.common;
 
+import com.google.common.annotations.Beta;
 import com.qtech.forgemods.core.Modules;
 import com.qtech.forgemods.core.QFMCore;
 import com.qtech.forgemods.core.client.gui.modules.ModuleCompatibility;
@@ -12,6 +13,8 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -145,10 +148,12 @@ public abstract class Module {
         return manager;
     }
 
+    @Beta
     public void discardChanges() {
 
     }
 
+    @Deprecated
     public boolean isUnsafe() {
         return false;
     }

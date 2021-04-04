@@ -120,9 +120,6 @@ public class Initialization {
 
         this.logger.info("Registering keybindings");
         KeyBindingList.register();
-        if (Minecraft.getInstance().getVersion().equals("MOD_DEV")) {
-            DebugMenu.DEBUG_PAGE = DebugMenu.PAGE.PLAYER_1;
-        }
 
         for (Item item : Registration.getItems((item) -> item instanceof AdvancedBowItem)) {
             ItemModelsProperties.registerProperty(item, new ResourceLocation("pull"), (p_239429_0_, p_239429_1_, p_239429_2_) -> {

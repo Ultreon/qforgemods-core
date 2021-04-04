@@ -16,6 +16,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings({"FieldCanBeLocal", "unused", "FieldMayBeFinal"})
 @Mod.EventBusSubscriber(modid = QFMCore.modId, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class VMWarningScreen extends Screen {
     private static boolean initialized = false;

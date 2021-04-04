@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 public class Constants {
     static IProxy proxy;
     static QFMCore qforgemod;
-    static Minecraft minecraft;
     static Logger logger;
 
     public static Logger getLogger() {

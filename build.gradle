@@ -62,7 +62,7 @@ String filePath = "buildnumber.txt";
 printf(new File('.').getAbsolutePath());
 
 try {
-    content = new String(Files.readAllBytes(FileSystems.getDefault().getPath(project.getRootDir().getAbsolutePath(), filePath)));
+    content = new String(Files.readAllBytes(FileSystems.getDefault().getPath(projectDir.getAbsolutePath(), filePath)));
 } catch (IOException e) {
     throw new RuntimeException(e);
 }
@@ -577,7 +577,7 @@ buildInfoJ.add "project",    projectJ
 json      .add "version",    versionJ
 json      .add "build_info", buildInfoJ
 
-File qfmArgsFile = new File("src/main/resources/META-INF/qfm_args.json")
+File qfmArgsFile = new File(projectDir, "src/main/resources/META-INF/qfm_args.json")
 //File qfmArgsFile = new File("qfm_args.json")
 if (qfmArgsFile.exists()) {
     qfmArgsFile.delete()
